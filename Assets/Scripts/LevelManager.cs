@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using TMPro;
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] TMP_Text levelNo;
     [SerializeField] int nextLevel;
     void Start()
     {
+        levelNo.text = $"Level {SceneManager.GetActiveScene().buildIndex}";
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
     void Update()
@@ -16,7 +18,10 @@ public class LevelManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-
+    void LevelDelay()
+    {
+        SceneManager.LoadScene(nextLevel);
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Water"))
@@ -25,7 +30,7 @@ public class LevelManager : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Finish"))
         {
-            SceneManager.LoadScene(nextLevel);
+            Invoke("LevelDelay", 2f);
         }
     } 
 }
