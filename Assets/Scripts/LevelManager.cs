@@ -38,6 +38,8 @@ public class LevelManager : MonoBehaviour
         if(other.gameObject.CompareTag("Coin"))
         {
             coin++;
+            cointext.text = coin.ToString();
+            Destroy(other.gameObject);
         }
     } 
 }
