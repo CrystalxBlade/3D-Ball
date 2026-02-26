@@ -35,5 +35,9 @@ public class LevelManager : MonoBehaviour
         {
             Invoke("LevelDelay", 2f);
         }
+        if(other.gameObject.CompareTag("Coin"))
+        {
+            coin++;
+        }
     } 
 }
