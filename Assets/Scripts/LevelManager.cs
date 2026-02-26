@@ -3,10 +3,13 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LevelManager : MonoBehaviour
 {
+    [SerializeField] TMP_Text cointext;
+    int coin;
     [SerializeField] TMP_Text levelNo;
     [SerializeField] int nextLevel;
     void Start()
     {
+        coin = 0; 
         levelNo.text = $"Level {SceneManager.GetActiveScene().buildIndex}";
         nextLevel = SceneManager.GetActiveScene().buildIndex + 1;
     }
