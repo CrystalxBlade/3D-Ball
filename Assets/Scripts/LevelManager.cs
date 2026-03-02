@@ -33,6 +33,10 @@ public class LevelManager : MonoBehaviour
         }
         if(other.gameObject.CompareTag("Finish"))
         {
+            if(nextLevel > PlayerPrefs.GetInt("Unlocked_Level"))
+            {
+                PlayerPrefs.SetInt("Unlocked_Level", nextLevel);
+            }
             Invoke("LevelDelay", 2f);
         }
         if(other.gameObject.CompareTag("Coin"))
