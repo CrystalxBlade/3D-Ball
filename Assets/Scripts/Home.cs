@@ -10,11 +10,17 @@ public class Home : MonoBehaviour
     }
     public void Play()
     {
-        
+        int unlocked_Level = PlayerPrefs.GetInt("Unlocked_Level", 1);
+        SceneManager.LoadScene(unlocked_Level);
     }
     public void LevelSelect()
     {
         SceneManager.LoadScene("Level_Selection");
+    }
+    public void Reset()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene(0);
     }
     public void Quit()
     {
