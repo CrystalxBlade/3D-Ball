@@ -15,7 +15,10 @@ public class LevelManager : MonoBehaviour
     }
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     void Reload()
     {
