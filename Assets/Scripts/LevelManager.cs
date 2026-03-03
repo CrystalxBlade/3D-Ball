@@ -37,6 +37,8 @@ public class LevelManager : MonoBehaviour
             {
                 PlayerPrefs.SetInt("Unlocked_Level", nextLevel);
             }
+            coin += PlayerPrefs.GetInt("Saved_Coins");
+            PlayerPrefs.SetInt("Saved_Coins", coin);
             Invoke("LevelDelay", 2f);
         }
         if(other.gameObject.CompareTag("Coin"))
